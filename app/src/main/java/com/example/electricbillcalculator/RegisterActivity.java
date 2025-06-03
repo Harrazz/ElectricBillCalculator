@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -69,7 +70,12 @@ public class RegisterActivity extends AppCompatActivity {
                                 Intent i = new Intent(getApplicationContext(),ProfileActivity.class);
                                 startActivity(i);
                             }else{
-                                Toast.makeText(getApplicationContext(),"User could not be create",Toast.LENGTH_SHORT).show();
+                                Exception e= task.getException();
+                                if (e instanceof FirebaseAuthUserCollisionException) {
+                                    Toast.makeText(getApplicationContext(),"Email already existed",Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "User could not be create", Toast.LENGTH_SHORT).show();
+                                }
                             }
                         }
                     });
