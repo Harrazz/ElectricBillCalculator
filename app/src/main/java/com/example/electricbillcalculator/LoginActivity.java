@@ -45,6 +45,11 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(LoginActivity.this, AboutApp.class);
             startActivity(intent);
         });
+
+        findViewById(R.id.textView6).setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(intent);
+        });
     }
 
     public void loginUser(View v){

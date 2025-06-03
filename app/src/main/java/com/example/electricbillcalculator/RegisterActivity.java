@@ -45,6 +45,11 @@ public class RegisterActivity extends AppCompatActivity {
             Intent intent = new Intent(RegisterActivity.this, AboutApp.class);
             startActivity(intent);
         });
+
+        findViewById(R.id.textView7).setOnClickListener(v -> {
+            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+            startActivity(intent);
+        });
     }
 
     public void createUser(View v){
