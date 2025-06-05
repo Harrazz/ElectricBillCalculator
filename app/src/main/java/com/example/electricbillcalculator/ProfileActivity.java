@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,6 +47,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     public void signout(View v){
         auth.signOut();
+        Toast.makeText(ProfileActivity.this, "User logged out", Toast.LENGTH_SHORT).show();
         finish();
         Intent i = new Intent(this,MainActivity.class);
         startActivity(i);
