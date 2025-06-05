@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff5bf"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <include
@@ -52,6 +52,12 @@
         android:onClick="openRegister"
         android:text="Sign Up"
         android:textColor="#000000"
+        android:elevation="8dp"
+        android:translationZ="4dp"
+        android:outlineProvider="background"
+        android:stateListAnimator="@null"
+        android:padding="10dp"
+        android:clipToOutline="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView5" />
@@ -68,8 +74,25 @@
         android:onClick="openLogin"
         android:text="Login"
         android:textColor="#000000"
+        android:elevation="8dp"
+        android:translationZ="4dp"
+        android:outlineProvider="background"
+        android:stateListAnimator="@null"
+        android:padding="10dp"
+        android:clipToOutline="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button2" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Track your monthly bill with ease"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
