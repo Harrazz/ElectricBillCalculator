@@ -67,7 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
                             if(task.isSuccessful()){
                                 Toast.makeText(getApplicationContext(),"User created succesfully",Toast.LENGTH_SHORT).show();
                                 finish();
-                                Intent i = new Intent(getApplicationContext(),ProfileActivity.class);
+                                Intent i = new Intent(getApplicationContext(),MainActivity.class);
                                 startActivity(i);
                             }else{
                                 Exception e= task.getException();

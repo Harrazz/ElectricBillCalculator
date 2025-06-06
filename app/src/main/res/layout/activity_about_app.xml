@@ -13,6 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="#000000"
         android:text="ABOUT"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +37,7 @@
         android:layout_height="119dp"
         android:gravity="center"
         android:textColor="#1F1F1F"
-        android:text="Full Name: Muhammad Harraz Hariri Bin Hazrilhasnie\nStudent ID: 2024974617\nCourse: ICT602 - Mobile Technology and Development\n© 2025 All Rights Reserved."
+        android:text="Full Name: Muhammad Harraz Hariri Bin Hazrilhasnie\nStudent ID: 2024974617\nCourse: ICT602 - Mobile Technology and Development\n© 2025 Harraz. All Rights Reserved."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />

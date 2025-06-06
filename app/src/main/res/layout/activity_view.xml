@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".ViewBill">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/labelMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="90dp"
+        android:text="Month" />
+
+    <TextView
+        android:id="@+id/textMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/labelMonth"
+        android:layout_alignBaseline="@id/labelMonth"
+        android:layout_marginStart="24dp" />
+
+    <TextView
+        android:id="@+id/labelUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Unit"
+        android:layout_below="@id/labelMonth"
+        android:layout_marginTop="16dp"
+        android:layout_alignStart="@id/labelMonth" />
+
+    <TextView
+        android:id="@+id/textUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/labelUnit"
+        android:layout_alignBaseline="@id/labelUnit"
+        android:layout_marginStart="24dp" />
+
+    <TextView
+        android:id="@+id/labelTotalCharges"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Charges"
+        android:layout_below="@id/labelUnit"
+        android:layout_marginTop="16dp"
+        android:layout_alignStart="@id/labelUnit" />
+
+    <TextView
+        android:id="@+id/textTotalCharges"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/labelTotalCharges"
+        android:layout_alignBaseline="@id/labelTotalCharges"
+        android:layout_marginStart="24dp" />
+
+    <TextView
+        android:id="@+id/labelRebate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rebate (%)"
+        android:layout_below="@id/labelTotalCharges"
+        android:layout_marginTop="16dp"
+        android:layout_alignStart="@id/labelTotalCharges" />
+    <TextView
+        android:id="@+id/textRebate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/labelRebate"
+        android:layout_alignBaseline="@id/labelRebate"
+        android:layout_marginStart="24dp" />
+
+    <TextView
+        android:id="@+id/labelFinalCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Final Cost"
+        android:layout_below="@id/labelRebate"
+        android:layout_marginTop="16dp"
+        android:layout_alignStart="@id/labelRebate" />
+    <TextView
+        android:id="@+id/textFinalCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/labelFinalCost"
+        android:layout_alignBaseline="@id/labelFinalCost"
+        android:layout_marginStart="24dp" />
+
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/labelFinalCost"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="64dp"
+        android:text="Back"
+        android:backgroundTint="#FFEB3B"
+        android:textColor="#000000"
+        android:fontFamily="@font/poppins_bold"
+        android:elevation="8dp"
+        android:translationZ="4dp"
+        android:outlineProvider="background"
+        android:stateListAnimator="@null"
+        android:padding="10dp"
+        android:clipToOutline="true" />
+
+</RelativeLayout>
