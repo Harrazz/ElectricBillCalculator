@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -47,7 +49,7 @@ public class CreateBill extends AppCompatActivity {
 
         spinnerMonth = findViewById(R.id.spinnerMonth);
         editUnit = findViewById(R.id.editUnit);
-        editRebate = findViewById(R.id.editRebate);
+        RadioGroup radioGroupRebate = findViewById(R.id.radioGroupRebate);
         btnSave = findViewById(R.id.button1);
         btnBack = findViewById(R.id.button2);
 
@@ -61,20 +63,23 @@ public class CreateBill extends AppCompatActivity {
             public void onClick(View v) {
                 String month = spinnerMonth.getSelectedItem().toString();
                 String unitStr = editUnit.getText().toString().trim();
-                String rebateStr = editRebate.getText().toString().trim();
 
-                if (unitStr.isEmpty() || rebateStr.isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Please fill in both Unit and Rebate fields.", Toast.LENGTH_SHORT).show();
+                if (unitStr.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Please enter the Unit used.", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
+                int selectedId = radioGroupRebate.getCheckedRadioButtonId();
+                if (selectedId == -1) {
+                    Toast.makeText(getApplicationContext(), "Please select a rebate percentage.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                RadioButton selectedRadioButton = findViewById(selectedId);
+                String rebateText = selectedRadioButton.getText().toString().replace("%", "").trim();
 
                 double unit = Double.parseDouble(unitStr);
-
-                double rebate = Double.parseDouble(rebateStr);
-                if (rebate > 5) {
-                    Toast.makeText(getApplicationContext(), "Maximum rebate is 5.", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                double rebate = Double.parseDouble(rebateText);
 
                 double totalCharges = BillCalculator.calculateTotalCharges(unit);
                 double finalCost = BillCalculator.applyRebate(totalCharges, rebate);

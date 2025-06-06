@@ -80,18 +80,23 @@
         android:layout_marginTop="24dp"
         android:layout_marginStart="16dp" />
 
-    <EditText
-        android:id="@+id/editText4"
-        android:layout_width="0dp"
+    <RadioGroup
+        android:id="@+id/radioGroupRebate"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Enter Rebate (%)"
-        android:inputType="numberDecimal"
+        android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/labelRebate"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp">
+
+        <RadioButton android:id="@+id/radio0" android:text="0%" />
+        <RadioButton android:id="@+id/radio1" android:text="1%" />
+        <RadioButton android:id="@+id/radio2" android:text="2%" />
+        <RadioButton android:id="@+id/radio3" android:text="3%" />
+        <RadioButton android:id="@+id/radio4" android:text="4%" />
+        <RadioButton android:id="@+id/radio5" android:text="5%" />
+    </RadioGroup>
 
     <Button
         android:id="@+id/button1"
@@ -110,7 +115,7 @@
         android:stateListAnimator="@null"
         android:padding="10dp"
         android:clipToOutline="true"
-        app:layout_constraintTop_toBottomOf="@+id/editText4"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupRebate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
