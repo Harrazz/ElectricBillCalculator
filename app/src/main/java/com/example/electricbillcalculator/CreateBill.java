@@ -51,8 +51,8 @@ public class CreateBill extends AppCompatActivity {
         btnSave = findViewById(R.id.button1);
         btnBack = findViewById(R.id.button2);
 
-        String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun",
-                "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+        String[] months = {"January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, months);
         spinnerMonth.setAdapter(adapter);
 
@@ -60,8 +60,16 @@ public class CreateBill extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String month = spinnerMonth.getSelectedItem().toString();
-                double unit = Double.parseDouble(editUnit.getText().toString().trim());
-                double rebate = Double.parseDouble(editRebate.getText().toString().trim());
+                String unitStr = editUnit.getText().toString().trim();
+                String rebateStr = editRebate.getText().toString().trim();
+
+                if (unitStr.isEmpty() || rebateStr.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Please fill in both Unit and Rebate fields.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                double unit = Double.parseDouble(unitStr);
+                double rebate = Double.parseDouble(rebateStr);
 
                 double totalCharges = BillCalculator.calculateTotalCharges(unit);
                 double finalCost = BillCalculator.applyRebate(totalCharges, rebate);

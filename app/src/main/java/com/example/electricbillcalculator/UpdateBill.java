@@ -28,8 +28,8 @@ public class UpdateBill extends AppCompatActivity {
     EditText editUnit, editRebate;
     TextView textId;
 
-    String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun",
-            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+    String[] months = {"January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,8 +84,16 @@ public class UpdateBill extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String month = spinnerMonth.getSelectedItem().toString();
-                double unit = Double.parseDouble(editUnit.getText().toString().trim());
-                double rebate = Double.parseDouble(editRebate.getText().toString().trim());
+                String unitStr = editUnit.getText().toString().trim();
+                String rebateStr = editRebate.getText().toString().trim();
+
+                if (unitStr.isEmpty() || rebateStr.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Please fill in both Unit and Rebate fields.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                double unit = Double.parseDouble(unitStr);
+                double rebate = Double.parseDouble(rebateStr);
 
                 double totalCharges = BillCalculator.calculateTotalCharges(unit);
                 double finalCost = BillCalculator.applyRebate(totalCharges, rebate);
