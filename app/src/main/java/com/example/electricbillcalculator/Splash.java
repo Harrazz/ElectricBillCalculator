@@ -35,7 +35,7 @@ public class Splash extends AppCompatActivity {
         Button button = findViewById(R.id.button);
         button.setOnClickListener(v -> {
             // Start MainActivity
-            Intent intent = new Intent(Splash.this, MainActivity.class);
+            Intent intent = new Intent(Splash.this, Authentication.class);
             startActivity(intent);
             finish(); // optional, closes the Splash activity
         });
