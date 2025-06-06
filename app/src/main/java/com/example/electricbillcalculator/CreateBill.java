@@ -69,7 +69,12 @@ public class CreateBill extends AppCompatActivity {
                 }
 
                 double unit = Double.parseDouble(unitStr);
+
                 double rebate = Double.parseDouble(rebateStr);
+                if (rebate > 5) {
+                    Toast.makeText(getApplicationContext(), "Maximum rebate is 5.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 double totalCharges = BillCalculator.calculateTotalCharges(unit);
                 double finalCost = BillCalculator.applyRebate(totalCharges, rebate);
