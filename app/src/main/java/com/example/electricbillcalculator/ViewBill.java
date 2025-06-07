@@ -52,11 +52,14 @@ public class ViewBill extends AppCompatActivity {
             SQLiteDatabase db = dbHelper.getReadableDatabase();
             cursor = db.rawQuery("SELECT * FROM bill WHERE no = " + id, null);
             if (cursor.moveToFirst()) {
+                double totalCharges = cursor.getDouble(cursor.getColumnIndexOrThrow("totalCharges"));
+                double finalCost = cursor.getDouble(cursor.getColumnIndexOrThrow("finalCost"));
+
                 textMonth.setText(cursor.getString(cursor.getColumnIndexOrThrow("month")));
                 textUnit.setText(cursor.getString(cursor.getColumnIndexOrThrow("unit")));
-                textTotalCharges.setText(cursor.getString(cursor.getColumnIndexOrThrow("totalCharges")));
+                textTotalCharges.setText(String.format("RM %.2f", totalCharges));
                 textRebate.setText(cursor.getString(cursor.getColumnIndexOrThrow("rebate")));
-                textFinalCost.setText(cursor.getString(cursor.getColumnIndexOrThrow("finalCost")));
+                textFinalCost.setText(String.format("RM %.2f", finalCost));
             }
         }
 

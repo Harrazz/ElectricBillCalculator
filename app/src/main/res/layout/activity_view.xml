@@ -19,7 +19,6 @@
         android:id="@+id/labelMonth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_marginStart="25dp"
         android:layout_marginTop="90dp"
         android:text="Month:" />
@@ -28,9 +27,9 @@
         android:id="@+id/textMonth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/labelMonth"
+        android:layout_alignParentEnd="true"
         android:layout_alignBaseline="@id/labelMonth"
-        android:layout_marginStart="24dp" />
+        android:layout_marginEnd="24dp" />
 
     <TextView
         android:id="@+id/labelUnit"
@@ -45,9 +44,9 @@
         android:id="@+id/textUnit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/labelUnit"
+        android:layout_alignParentEnd="true"
         android:layout_alignBaseline="@id/labelUnit"
-        android:layout_marginStart="24dp" />
+        android:layout_marginEnd="24dp" />
 
     <TextView
         android:id="@+id/labelTotalCharges"
@@ -62,9 +61,9 @@
         android:id="@+id/textTotalCharges"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/labelTotalCharges"
+        android:layout_alignParentEnd="true"
         android:layout_alignBaseline="@id/labelTotalCharges"
-        android:layout_marginStart="24dp" />
+        android:layout_marginEnd="24dp" />
 
     <TextView
         android:id="@+id/labelRebate"
@@ -74,13 +73,14 @@
         android:layout_below="@id/labelTotalCharges"
         android:layout_marginTop="16dp"
         android:layout_alignStart="@id/labelTotalCharges" />
+
     <TextView
         android:id="@+id/textRebate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/labelRebate"
+        android:layout_alignParentEnd="true"
         android:layout_alignBaseline="@id/labelRebate"
-        android:layout_marginStart="24dp" />
+        android:layout_marginEnd="24dp" />
 
     <TextView
         android:id="@+id/labelFinalCost"
@@ -94,9 +94,9 @@
         android:id="@+id/textFinalCost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/labelFinalCost"
+        android:layout_alignParentEnd="true"
         android:layout_alignBaseline="@id/labelFinalCost"
-        android:layout_marginStart="24dp" />
+        android:layout_marginEnd="24dp" />
 
     <Button
         android:id="@+id/buttonBack"
