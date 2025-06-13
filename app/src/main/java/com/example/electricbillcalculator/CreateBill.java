@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -26,7 +27,7 @@ public class CreateBill extends AppCompatActivity {
     DataHelper dbHelper;
     Button btnSave, btnBack;
     EditText editMonth, editUnit, editRebate;
-    Spinner spinnerMonth;
+    AutoCompleteTextView autoCompleteMonth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,7 @@ public class CreateBill extends AppCompatActivity {
 
         dbHelper = new DataHelper(this);
 
-        spinnerMonth = findViewById(R.id.spinnerMonth);
+        autoCompleteMonth = findViewById(R.id.autoCompleteMonth);
         editUnit = findViewById(R.id.editUnit);
         RadioGroup radioGroupRebate = findViewById(R.id.radioGroupRebate);
         btnSave = findViewById(R.id.button1);
@@ -56,13 +57,18 @@ public class CreateBill extends AppCompatActivity {
         String[] months = {"January", "February", "March", "April", "May", "June",
                 "July", "August", "September", "October", "November", "December"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, months);
-        spinnerMonth.setAdapter(adapter);
+        autoCompleteMonth.setAdapter(adapter);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String month = spinnerMonth.getSelectedItem().toString();
+                String month = autoCompleteMonth.getText().toString().trim();
                 String unitStr = editUnit.getText().toString().trim();
+
+                if (month.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Please select the month.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 if (unitStr.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Please enter the Unit used.", Toast.LENGTH_SHORT).show();

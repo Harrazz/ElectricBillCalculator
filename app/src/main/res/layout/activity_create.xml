@@ -15,56 +15,61 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewMonth"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutMonth"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
-        android:text="Select Month"
+        android:hint="Select Month"
+        app:boxBackgroundMode="outline"
+        app:layout_constraintTop_toBottomOf="@+id/header"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header" />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <Spinner
-        android:id="@+id/spinnerMonth"
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteMonth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:focusable="false"
+            android:clickable="true"
+            android:textColor="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutUnit"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/textViewMonth"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp" />
-
-    <TextView
-        android:id="@+id/textViewUnit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Electricity Used (kWh)"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerMonth"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="24dp"
-        android:layout_marginStart="16dp" />
-
-    <EditText
-        android:id="@+id/editUnit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Enter Unit Used"
-        android:inputType="numberDecimal"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUnit"
+        android:hint="Electricity Used (kWh)"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/black"
+        app:hintTextColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutMonth"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp" />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editUnit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textColor="@color/black"
+            android:textCursorDrawable="@null" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textViewRebate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Rebate (%)"
-        app:layout_constraintTop_toBottomOf="@+id/editUnit"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutUnit"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="24dp"
         android:layout_marginStart="16dp" />
